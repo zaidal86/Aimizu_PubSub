@@ -25,7 +25,14 @@ module.exports = function (osuAPI, Tclient) {
     }
 
     function NP() {
-        Tclient.say('#' + channels, 'En Développement !');
+        osuAPI.getUserRecent({ u: 'Argonaute' }).then(scores => {
+            let beatmaps = scores[0].beatmapId;
+            osuAPI.getBeatmaps({ b: beatmaps }).then(beatmaps => {
+                Tclient.say('#' + channels, 'The Beatmaps is: [' + beatmaps[0].approvalStatus + '] ' + beatmaps[0].title + ' [' + beatmaps[0].version + '] (by ' +
+                    beatmaps[0].creator + '), ' + beatmaps[0].bpm + ' BPM, ' + financial(beatmaps[0].difficulty.rating) + '*' + ' https://osu.ppy.sh/beatmapsets/' +
+                    beatmaps[0].beatmapSetId + '#osu/' + beatmaps[0].id);
+            });
+        });
     }
 
     return { PP, Rank, Accuracy, NP };
