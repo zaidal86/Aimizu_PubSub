@@ -16,7 +16,7 @@ client.onmessage = async function (e) {
 
         let title = NameOfReward.data.redemption.reward.title;
         let name = NameOfReward.data.redemption.user.display_name;
-        let user = NameOfReward.data.redemption.user_input;
+        let user = NameOfReward.data.redemption.user_input.split(/ +/);
 
         if (title !== undefined) {
           vip(name, function (str) {
@@ -24,8 +24,17 @@ client.onmessage = async function (e) {
           });
         };
 
-        if (title === "Bannissez temporairement quelqu'un") {
-          Tclient.say('#' + channels, "/timeout " + user + " 120" + " On a payé pour te bannir alors pars " + user.replace('@', ' '));
+        if (title === "Bannissement temporaire") {
+          let username = user[0].replace('@', '');
+          vip(username, function (str) {
+            if (str === 'moderator') {
+              Tclient.say('#' + channels, "timeout " + name + " 120" + " C'est pas bien de vouloir ban un modo !");
+            } else if (str === 'broadcaster') {
+              Tclient.say('#' + channels, "timeout " + name + " 120" + " C'est pas bien de vouloir ban la streameuse !");
+            } else {
+              Tclient.say('#' + channels, "timeout " + user + " 120" + " On a payé pour te bannir, alors pars " + username);
+            }
+          });
         };
       };
     };
