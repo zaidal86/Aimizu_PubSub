@@ -25,7 +25,7 @@ module.exports = function (osuAPI, Tclient) {
     }
 
     function NP() {
-        osuAPI.getUserRecent({ u: 'Argonaute' }).then(scores => {
+        osuAPI.getUserRecent({ u: OsuUser }).then(scores => {
             let beatmaps = scores[0].beatmapId;
             osuAPI.getBeatmaps({ b: beatmaps }).then(beatmaps => {
                 Tclient.say('#' + channels, 'The Beatmaps is: [' + beatmaps[0].approvalStatus + '] ' + beatmaps[0].title + ' [' + beatmaps[0].version + '] (by ' +
