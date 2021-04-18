@@ -28,11 +28,11 @@ client.onmessage = async function (e) {
           let username = user[0].replace('@', '');
           vip(username, function (str) {
             if (str === 'moderator') {
-              Tclient.say('#' + channels, "timeout " + name + " 120" + " C'est pas bien de vouloir ban un modo !");
+              Tclient.say('#' + channels, "/timeout " + name + " 120" + " C'est pas bien de vouloir ban un modo !");
             } else if (str === 'broadcaster') {
-              Tclient.say('#' + channels, "timeout " + name + " 120" + " C'est pas bien de vouloir ban la streameuse !");
+              Tclient.say('#' + channels, "/timeout " + name + " 120" + " C'est pas bien de vouloir ban la streameuse !");
             } else {
-              Tclient.say('#' + channels, "timeout " + user + " 120" + " On a payé pour te bannir, alors pars " + username);
+              Tclient.say('#' + channels, "/timeout " + user + " 120" + " On a payé pour te bannir, alors pars " + username);
             }
           });
         };
