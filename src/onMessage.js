@@ -1,5 +1,5 @@
 const { osuAPI, Tclient } = require('./connecting.js');
-const { PP, Rank, Accuracy } = require('./osu.js')(osuAPI, Tclient);
+const { PP, Rank, Accuracy, NP } = require('./osu.js')(osuAPI, Tclient);
 
 function onMessageHandler(target, context, msg, self) {
     if (self) { return; }
@@ -14,6 +14,9 @@ function onMessageHandler(target, context, msg, self) {
     }
     if (commandName === '!accuracy') {
         Accuracy();
+    }
+    if (commandName === '!np') {
+        NP();
     }
 }
 

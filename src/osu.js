@@ -24,5 +24,9 @@ module.exports = function (osuAPI, Tclient) {
         });
     }
 
-    return { PP, Rank, Accuracy };
+    function NP() {
+        Tclient.say('#' + channels, 'En Développement !');
+    }
+
+    return { PP, Rank, Accuracy, NP };
 }
