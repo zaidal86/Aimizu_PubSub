@@ -22,7 +22,7 @@ client.onmessage = async function (e) {
           });
         };
 
-        if (title === "Bannissement temporaire") {
+        if (title === "Bannissez temporairement quelqu'un") {
           let user = NameOfReward.data.redemption.user_input.split(/ +/);
           let username = user[0].replace('@', '');
           vip(username, function (str) {
