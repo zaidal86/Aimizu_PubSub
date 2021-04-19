@@ -22,10 +22,6 @@ function onMessageHandler(target, context, msg, self) {
     if (commandName === 'yo' || commandName === 'bonjour' || commandName === 'hey' || commandName === 'hello' || commandName === 'salut') {
         Tclient.say('#' + channels, '@' + context['display-name'] + ' KonCha');
     }
-    let user = commandName.replace('@', '');
-    if (user === username) {
-        Tclient.say('#' + channels, 'Tu me veux quoi ?');
-    }
 }
 
 module.exports = { onMessageHandler }

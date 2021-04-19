@@ -14,7 +14,7 @@ function vip(pseudo, callback) {
         try {
             let id = yolo[0].id;
 
-            let API2 = `https://api.twitch.tv/kraken/users/${id}/chat/channels/169292139`;
+            let API2 = `https://api.twitch.tv/kraken/users/${id}/chat/channels/151011472`;
             const options2 = { 'method': 'GET', 'url': API2, 'headers': { 'Client-ID': client_id, 'Accept': 'application/vnd.twitchtv.v5+json' } };
 
             request(options2, function (error, response) {
