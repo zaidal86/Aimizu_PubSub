@@ -16,7 +16,6 @@ client.onmessage = async function (e) {
 
         let title = NameOfReward.data.redemption.reward.title;
         let name = NameOfReward.data.redemption.user.display_name;
-
         if (title !== undefined) {
           vip(name, function (str) {
             console.log(time() + ' ' + title + ' : ' + name + ' is ' + str + ' claim reward');
