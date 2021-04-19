@@ -1,5 +1,5 @@
 const { osuAPI, Tclient } = require('./connecting.js');
-const { channels } = require('../config/token.json');
+const { channels, username } = require('../config/token.json');
 const { PP, Rank, Accuracy, NP } = require('./osu.js')(osuAPI, Tclient);
 
 function onMessageHandler(target, context, msg, self) {
